@@ -55,5 +55,5 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "vendor": "node ./lib/webpack.config.vendor.js"
   },
-  "version": "0.1.2"
+  "version": "0.1.3"
 }
