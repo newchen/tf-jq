@@ -55,5 +55,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "vendor": "node ./lib/webpack.config.vendor.js"
   },
-  "version": "0.1.3"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/newchen/tf-jq.git"
+  },
+  "bugs": {
+    "url": "https://github.com/newchen/tf-jq/issues"
+  },
+  "homepage": "https://github.com/newchen/tf-jq",
+  "version": "0.1.4"
 }

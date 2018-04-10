@@ -57,7 +57,6 @@ module.exports = {
         // 目录别名
         fonts: './src/assets/fonts',
         imgs: './src/assets/imgs',
-        layout: './src/layout',
         pages: './src/pages',
         utils: './src/utils',
         vendor: './src/vendor',
@@ -95,8 +94,6 @@ module.exports = {
     imgBase64Limit: 1024 * 8, // 小于多少转为base64
     imgCompressLimit: 1024 * 50, // 超过多少压缩图片
 
-    // assetsPath: './src/assets', // 静态资源路径
-    
     // dll相关配置
     dll: {
         srcPath: './vendor', // 打包要读取的文件夹目录
@@ -105,8 +102,9 @@ module.exports = {
         /*// 读取哪些文件打包，
         // 注意，除了node_modules目录下面的，只能是srcPath目录下面的文件
         entry: {
-            vendor: ['jquery', 'babel-polyfill'],
-            css: ['./vendor/a.css', './vendor/b.css'],
+            vendor: ['./vendor/jquery.js', 'babel-polyfill'],
+            css: ['./vendor/a.css', './vendor/b.css'], // 假设这里是一些框架或组件css
+            js: ['./vendor/a.js', './vendor/b.js'], // 假设这里是一些框架或组件js, 注意这里面的JS暂时只支持ES5语法
             
             iePolyfill: [
                 './vendor/ie8_patch/es5_safe.min.js', 
@@ -120,6 +118,17 @@ module.exports = {
     extractAllChunks: false, // extract-text-webpack-plugin插件：是否将分散的css文件合并成一个文件
 
     autoprefixer: ['ie>=8', '>1% in CN'], // css补全前缀，浏览器支持
+
+    // html-loader的配置, 默认处理html中的<img src="image.png">为require("./image.png")
+    htmlLoaderAttrs: ['img:src', 'link:href', 'script:src'/*,'img:data-src', 'a:href'*/],
+
+    // babel相关配置
+    babel: function(ieSupport) {
+        return {
+            presets: [ieSupport ? 'es2015-loose' : 'es2015', 'stage-0'],
+            cacheDirectory: true
+        }
+    }
 
     // svgPath: './src/assets/svg' // svg存放目录，可以是一个数组  // 不支持了，用不到
 }
