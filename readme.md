@@ -146,3 +146,10 @@ module.exports = function (webpackConfig, env) {
 }
 
 ```
+
+### 更新记录
+
+```
+  0.1.5:
+    去除uglify配置warnings导致的报错
+```
